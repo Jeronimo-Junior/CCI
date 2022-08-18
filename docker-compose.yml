@@ -5,9 +5,9 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE=CCI
-      - MYSQL_ROOT_PASSWORD="2708200315tT@"
-      - MYSQL_USER="root"
-      - MYSQL_PASSWORD="2708200315tT@"
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
     ports:
       - 3306:3306
     expose:
