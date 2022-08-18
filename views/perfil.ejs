@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/perfil.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Dashboard</title>
+
+</head>
+
+<body>
+    <section class="header">
+        <div class="logo">
+            <i class="ri-menu-line icon icon-0 menu"></i>
+            <h2>CC<span>I</span></h2>
+        </div>
+        <div class="search--notification--profile">
+            <div class="search">
+                <input type="text" placeholder="Pesquisar">
+                <button><i class="ri-search-2-line"></i></button>
+            </div>
+            <div class="notification--profile">
+                <div class="picon profile">
+                    <img class="fotoDePerfil" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="sidebar">
+            <ul class="sidebar--items">
+                <a href="/login">
+                    <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
+                    <span class="sidebar--item">Logout</span>
+                </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main--content">
+            <div class="overview">
+                <div class="title">
+                    <div class="cards">
+                        <div class="card card-1">
+                            <div class="card--data">
+                                <div class="card--content">
+                                    <h5 class="card--title">Total de Cursos</h5>
+                                    <h1>1</h1>
+                                </div>
+                                <i class="ri-user-2-line card--icon--lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctors">
+                    <div class="title">
+                        <h2 class="section--title">Cursos</h2>
+                        
+                    </div>
+                    <div class="doctors--cards">
+                        <a href="cronometro" class="doctor--card">
+                            <div class="img--box--cover">
+                                <div class="img--box">
+                                    <img class="excel" alt="">
+                                </div>
+                            </div>
+                            <p class="name"><%= curso.nome_curso %> </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="recent--patients">
+                    <div class="title">
+                        <h2 class="section--title">Cursos Recentes</h2>
+                    </div>
+                    <div class="table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Curso</th>
+                                    <th>Horas cursadas</th>
+                                    <th>Horas restantes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Usar esse parte do for nas listas de alunos em users e nas listas de perfil -->
+                                  <tr>
+                                    <td> <%= aluno.id_aluno %>  </td>
+                                    <td> <%= aluno.nome %>  </td>
+                                    <td> <%= aluno.email_aluno %> </td>
+                                    <td> <%= aluno.horas_restantes %> </td> 
+                    
+                                    
+                                  </tr>
+                    
+                              </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <script>
+        let menu = document.querySelector('.menu')
+        let sidebar = document.querySelector('.sidebar')
+        let mainContent = document.querySelector('.main--content')
+
+        menu.onclick = function () {
+            sidebar.classList.toggle('active')
+            mainContent.classList.toggle('active')
+
+
+            
+        }
+    </script>
+
+    
+</body>
+
+</html>

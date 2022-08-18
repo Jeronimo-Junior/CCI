@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img class="logo-img"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="login">CADASTRO</a></li>
+                    <li><a href="perfil.html">PEFIL</a></li>
+                    <li><a href="">SOBRE</a></li>
+                </ul>
+            </div>
+            <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>Seja bem vindo ao CIEE</h1>
+            <p>Seja bem vindo ao CIEE, faça o cadastro para ter acesso ao resto da plataforma</p>
+            <a href="login" class="hero-btn">CADASTRO</a>
+        </div>
+
+
+    </section>
+    <!-- CURSOS -->
+
+    <section class="cursos">
+        <h1>Cursos disponíveis</h1>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+
+
+
+    </section>
+
+
+
+
+    <!-- Usei javascript para o menu Toggle -->
+    <script>
+
+        var navLinks = document.getElementById("navLinks")
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

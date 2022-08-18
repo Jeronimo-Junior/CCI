@@ -1,0 +1,75 @@
+COMANDOS DOCKER / BANCO DE DADOS
+
+1 - Criar as imagens/containers
+docker-compose up --build -d
+
+2- Listar os containers para obter o id/ do container do banco e salvar o seu id
+docker ps
+
+3 - Iniciar a imagem mysql para rodar no bash e criar o banco de dados na mão 
+(criei os volumes mas por alguma razão não funcionou)
+
+docker exec -it nomedocontainer_ou_id bash
+mysql -u root -p
+SENHA = root
+
+4- Script do bd
+
+USE CCI
+CREATE TABLE cursos(
+  id_curso integer primary key,
+  nome_curso varchar(30),
+  carga_horaria integer,
+  modulos varchar(60),
+  UNIQUE(nome_curso)
+  
+);
+
+
+create TABLE aluno(
+  id_aluno  integer auto_increment  PRIMARY key,
+  nome VARCHAR(120),
+  nome_curso_fk varchar(60),
+  id_curso_fk integer,
+  email_aluno VARCHAR(250),
+  senha_aluno VARCHAR(250),  
+  horas_restantes integer,
+  UNIQUE(email_aluno),
+  FOREIGN key (id_curso_fk) REFERENCES cursos(id_curso)
+	
+);
+
+CREATE TABLE aula(
+	cod_aula integer primary key,
+  	cod_aluno integer,
+  	horas_feitas integer,
+    data_aula date,
+  	foreign key (cod_aluno) references aluno(id_aluno) 
+);
+
+
+CREATE table instrutor(
+  id_instrutor integer PRIMARY KEY not NULL,
+  curso VARCHAR(50),
+  email_instrutor VARCHAR(250),
+  senha_instrutor VARCHAR(250),
+  nome VARCHAR(120),
+  id_curso_fk_instrutor integer,
+  foreign key (id_curso_fk_instrutor) REFERENCES cursos(id_curso)
+);
+
+insert into cursos values (1,'Pacote Office',54,'Office');
+insert into cursos values (2,'Pacote Excel',60,'Excel');
+insert into cursos values (3,'Pacote Word',40,'Word');
+insert into cursos values (4,'Informática Básica',50,'Internet');
+insert into aluno values(1001,'Tulio',"Pacote Office",1,'tulioeduu@Outlook.com','tulio123',40);
+insert into aluno values(1002,'Jeronimo',"Pacote Office",1,'jeronimojr@gmail.com','jeronimo',40);
+insert into aluno values(1003,'José',"Pacote Word",3,'josejr@gmail.com','jose',40);
+insert into aluno values(1004,'Maria',"Informática Básica",4,'mariab@gmail.com','maria',40);
+insert into aluno values(1005,'Matheus',"Pacote Excel",2,'matheusc@gmail.com','matheus',40);
+insert into instrutor values(1,'Pacote Office', 'instrutor@gmail.com','instrutor','Roberto',1);
+INSERT into aula values (101,1001,2,'2022-08-04');
+
+5 -Apertar ctrl + d 2 vezes, para sair da criação manual do banco sql e do bash consecutivamente
+
+6 - Acessar localhost:3000
